@@ -19,7 +19,8 @@ public class Series_RM implements RowMapper<Series> {
         series.setProductora(rs.getString("productora"));
         series.setTitulo(rs.getString("titulo"));
         series.setSinopsis(rs.getString("sinopsis"));
-        series.setCategoria_id(rs.getByte("categorias_id"));
+        series.setCategorias_id(rs.getByte("categorias_id"));
+        series.setActivo(rs.getString("activo"));
         return series;
     }
     

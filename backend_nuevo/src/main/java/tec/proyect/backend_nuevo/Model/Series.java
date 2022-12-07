@@ -8,10 +8,19 @@ public class Series {
     private String productora;
     private String titulo;
     private String sinopsis;
-    private byte categoria_id;
+    private byte categorias_id;
+    private String Activo;
 
 
-    public byte getId() {
+    public String getActivo() {
+		return Activo;
+	}
+
+	public void setActivo(String activo) {
+		Activo = activo;
+	}
+
+	public byte getId() {
         return this.id;
     }
 
@@ -59,12 +68,12 @@ public class Series {
         this.sinopsis = sinopsis;
     }
 
-    public byte getCategoria_id() {
-        return this.categoria_id;
+    public byte getCategorias_id() {
+        return this.categorias_id;
     }
 
-    public void setCategoria_id(byte categoria_id) {
-        this.categoria_id = categoria_id;
+    public void setCategorias_id(byte categorias_id) {
+        this.categorias_id = categorias_id;
     }
 
 }
