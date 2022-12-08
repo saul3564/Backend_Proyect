@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
+import tec.proyect.backend_nuevo.Model.Temporada_x_serie;
 import tec.proyect.backend_nuevo.Model.Series;
 
 @Repository
@@ -32,4 +32,10 @@ public class Series_JDBC {
             series.getCategorias_id()
         );
 	}
+    public List<Temporada_x_serie> Temporada_x_serie() {
+        String sql = "SELECT S.titulo Series, T.numero_temporada Temporadas\r\n"
+        		+ "FROM temporadas T\r\n"
+        		+ "JOIN series S ON (S.id = T.series_id);";
+        return conexion.query(sql, new Temporada_x_serieRM());
+    }
 }

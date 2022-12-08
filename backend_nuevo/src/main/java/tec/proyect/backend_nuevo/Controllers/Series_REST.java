@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tec.proyect.backend_nuevo.Dao.Series_JDBC;
 import tec.proyect.backend_nuevo.Model.Series;
+import tec.proyect.backend_nuevo.Model.Temporada_x_serie;
 
 @RestController
 @RequestMapping("/series")
@@ -36,4 +37,9 @@ public class Series_REST {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
+	
+	@GetMapping("/por-temporada")
+    public List<Temporada_x_serie> obtenerTemporada_x_serie() {
+        return repository.Temporada_x_serie();
+    }
 }
