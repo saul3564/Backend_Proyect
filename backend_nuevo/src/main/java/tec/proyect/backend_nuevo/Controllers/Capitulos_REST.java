@@ -43,7 +43,7 @@ public class Capitulos_REST {
     public ResponseEntity<?>agregarCapitulo(@RequestBody Capitulos capitulo) {
         try {
             repository.agregarCapitulos(capitulo);
-            return new ResponseEntity<Capitulos>(HttpStatus.OK);
+            return new ResponseEntity<Void>(HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
