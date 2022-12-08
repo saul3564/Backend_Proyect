@@ -17,7 +17,11 @@ public class Capitulos_JDBC {
     JdbcTemplate conexion;
 
     public List<Capitulos> consultarCapitulos(int id) {
-        String sql = "SELECT * FROM capitulos WHERE id=?;";
+        String sql = "SELECT * "+
+                     "FROM capitulos C "+
+                         "JOIN temporadas T ON (T.id = C.temporadas_id) "+
+                         "JOIN series S ON (S.id = T.series_id) "+
+                     "WHERE C.id = 94 AND S.Activo = 1;";
         return conexion.query(sql, new Capitulos_RM(), id);
     }
 
@@ -35,7 +39,9 @@ public class Capitulos_JDBC {
     public List<Capitulos_x_temporada> capitulos_x_temporada() {
         String sql = "SELECT T.id Temporada, C.nombre Capitulo "+
                      "FROM capitulos C "+
-                        "JOIN temporadas T ON (T.id = C.temporadas_id);";
+                        "JOIN temporadas T ON (T.id = C.temporadas_id) "+
+                        "JOIN series S ON (S.id = T.series_id) "+
+                     "WHERE S.Activo = 1;";
         return conexion.query(sql, new Capitulos_x_temporada_RM());
     }
 

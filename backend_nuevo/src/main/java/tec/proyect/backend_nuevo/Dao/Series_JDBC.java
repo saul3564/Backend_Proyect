@@ -35,7 +35,8 @@ public class Series_JDBC {
     public List<Temporada_x_serie> Temporada_x_serie() {
         String sql = "SELECT S.titulo Series, T.numero_temporada Temporadas\r\n"
         		+ "FROM temporadas T\r\n"
-        		+ "JOIN series S ON (S.id = T.series_id);";
+        		+ "JOIN series S ON (S.id = T.series_id) "+
+                  "WHERE S.Activo = 1;";
         return conexion.query(sql, new Temporada_x_serieRM());
     }
     
