@@ -58,6 +58,7 @@ public class Series_REST {
 			repository.actualizarSerie(serie);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}

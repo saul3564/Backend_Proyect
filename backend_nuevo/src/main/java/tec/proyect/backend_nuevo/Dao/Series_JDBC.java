@@ -41,13 +41,23 @@ public class Series_JDBC {
     
     public void actualizarSerie(Series serie) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE series SET año_estreno=?, valoracion=?, productora=?,titulo=?,sinopsis=?,Categoria_id=?, WHERE ID=?";
-		conexion.update(sql,serie.getAnio_estreno(),serie.getValoracion(),serie.getProductora(),serie.getTitulo(),serie.getSinopsis(),serie.getCategorias_id(),serie.getId());
+		String sql = "UPDATE "+
+            "series SET año_estreno=?, valoracion=?, "+ 
+            "productora=?, titulo=?, sinopsis=?, categorias_id=? "+ 
+            "WHERE id=? AND Activo=1";
+		conexion.update(sql,
+            serie.getAnio_estreno(),
+            serie.getValoracion(),
+            serie.getProductora(),
+            serie.getTitulo(),
+            serie.getSinopsis(),
+            serie.getCategorias_id(),
+            serie.getId()
+        );
 	}
 
 	public void desactivar(int id) {
-		// TODO Auto-generated method stub
-		String sql = "UPDATE alumnos SET activo = 0, deleted = now() WHERE id=?";
+		String sql = "UPDATE series SET Activo = 0 WHERE id=?";
 		conexion.update(sql,id);
-		}
+	}
 }
