@@ -30,10 +30,10 @@ public class Series_REST {
 	public ResponseEntity<?> insertarSerie(@RequestBody Series series){
 		try {
 			repository.insertar(series);
-			
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		} catch (Exception e){
+			e.printStackTrace();
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
-}
+	}
 }

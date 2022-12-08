@@ -19,7 +19,17 @@ public class Series_JDBC {
         return conexion.query(sql, new Series_RM());
     }
     public void insertar(Series series) {
-		String sql = "INSERT INTO Series (año_estreno,valoracion, productora,titulo,sinopsis,categorias_id, activo) VALUES(?,?,?,?,?,?,?)";
-		conexion.update(sql,series.getAnio_estreno(), series.getValoracion(), series.getProductora(), series.getTitulo(), series.getSinopsis(), series.getCategorias_id(), series.getActivo());
+		String sql = "INSERT INTO "+ 
+        "series (año_estreno, valoracion, productora, titulo, sinopsis, categorias_id) "+
+        "VALUES (?,?,?,?,?,?)";
+		conexion.update(
+            sql,
+            series.getAnio_estreno(), 
+            series.getValoracion(), 
+            series.getProductora(), 
+            series.getTitulo(), 
+            series.getSinopsis(), 
+            series.getCategorias_id()
+        );
 	}
 }

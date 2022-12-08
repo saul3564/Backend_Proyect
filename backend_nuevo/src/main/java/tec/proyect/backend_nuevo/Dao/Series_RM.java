@@ -20,8 +20,6 @@ public class Series_RM implements RowMapper<Series> {
         series.setTitulo(rs.getString("titulo"));
         series.setSinopsis(rs.getString("sinopsis"));
         series.setCategorias_id(rs.getByte("categorias_id"));
-        series.setActivo(rs.getString("activo"));
         return series;
     }
-    
 }

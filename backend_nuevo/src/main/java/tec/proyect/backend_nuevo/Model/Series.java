@@ -9,18 +9,9 @@ public class Series {
     private String titulo;
     private String sinopsis;
     private byte categorias_id;
-    private String Activo;
 
 
-    public String getActivo() {
-		return Activo;
-	}
-
-	public void setActivo(String activo) {
-		Activo = activo;
-	}
-
-	public byte getId() {
+    public byte getId() {
         return this.id;
     }
 
