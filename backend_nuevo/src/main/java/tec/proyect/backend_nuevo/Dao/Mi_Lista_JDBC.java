@@ -32,8 +32,9 @@ public class Mi_Lista_JDBC {
 	}
 
 	public void eliminarPelicula(int pelicula_id, int perfil_usuario_id) {
-		String sql = "update mi_lista set activo = '0', fecha_modificado = now() " +
-				"where peliculas_id = ? and perfiles_usuarios_id = ?;";
+		String sql = "update mi_lista set activo = '0', fecha_modificado = now()" +
+				"where peliculas_id = ? and perfiles_usuarios_id= ?;";
 		conexion.update(sql, pelicula_id, perfil_usuario_id);
 	}
+	
 }

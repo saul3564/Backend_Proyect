@@ -2,6 +2,7 @@ package tec.proyect.backend_nuevo.Controllers;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,14 +48,19 @@ public class Mi_Lista_REST {
 		}
 	}
 
+	
+
 	@DeleteMapping()
-	public ResponseEntity<?> eliminarPelicula(@RequestParam int pelicula_id, @RequestParam int perfil_usuario_id) {
-		try {
-			repository.eliminarPelicula(pelicula_id, perfil_usuario_id);
-			return new ResponseEntity<Void>(HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}
+	public ResponseEntity<?> eliminarPelicula(@RequestParam int pelicula_id, @RequestParam int perfil_usuario_id)
+
+{
+	try {
+		repository.eliminarPelicula(pelicula_id, perfil_usuario_id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	} catch (Exception e) {
+		e.printStackTrace();
+		return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 	}
+}
+
 }
