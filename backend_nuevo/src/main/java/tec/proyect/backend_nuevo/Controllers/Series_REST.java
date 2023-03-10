@@ -26,7 +26,7 @@ public class Series_REST {
     Series_JDBC repository;
 
     @GetMapping
-    public List<Series>obtenerSeries() {
+    public List<Series> Obtener_Lista() {
         return repository.consultarSeries();
     }
 
