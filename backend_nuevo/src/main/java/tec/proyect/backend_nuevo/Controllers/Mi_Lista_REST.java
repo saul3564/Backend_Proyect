@@ -64,5 +64,4 @@ public class Mi_Lista_REST {
 	public int Cantidad_Peli(@RequestParam int perfiles_usuarios_id) {
 		return repository.Cantidad_Peli(perfiles_usuarios_id);
 	}
-
 }
