@@ -20,5 +20,8 @@ public void agregar(Historial historial) {
 			historial.getPeliculaId());
 			
 }
-
+public void actualizar(Historial historial) {
+	String sql = "UPDATE historial SET tiempo_avance= ?, WHERE id= ?";
+	conexion.update(sql, historial.getTiempoAvance(),historial.getId());
+}
 }

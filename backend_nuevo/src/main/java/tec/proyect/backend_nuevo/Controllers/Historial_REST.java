@@ -30,4 +30,15 @@ public class Historial_REST {
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
 	}
+	@PutMapping
+	public ResponseEntity<?> actualizar(@RequestBody Historial historial) {
+		try {
+			repository.actualizar(historial);
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
+		}
+		catch(Exception e){
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+	}
+	
 }
