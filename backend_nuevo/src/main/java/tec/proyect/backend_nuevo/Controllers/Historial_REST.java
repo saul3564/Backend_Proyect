@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tec.proyect.backend_nuevo.Dao.Historial_JDBC;
 import tec.proyect.backend_nuevo.Model.Historial;
-import tec.proyect.backend_nuevo.Model.Mi_Lista;
 
 @RestController
 @RequestMapping("/historial")
@@ -19,17 +18,6 @@ public class Historial_REST {
 
 	@Autowired
 	Historial_JDBC repository;
-	
-	@PostMapping
-	public ResponseEntity<?> agregar(@RequestBody Historial historial) {
-		try {
-			repository.agregar(historial);
-			return new ResponseEntity<Mi_Lista>(HttpStatus.CREATED);
-		}
-		catch(Exception e){
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		}
-	}
 
 @PutMapping
 public ResponseEntity<?> actualizar(@RequestBody Historial historial) {

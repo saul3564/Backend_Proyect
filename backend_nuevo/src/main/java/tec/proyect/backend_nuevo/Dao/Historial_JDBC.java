@@ -11,16 +11,6 @@ public class Historial_JDBC {
 @Autowired
 JdbcTemplate conexion;
 
-public void agregar(Historial historial) {
-	String sql = "INSERT INTO historial (fecha, tiempo_avance,perfiles_usuarios_id, peliculas_id)"
-			+"VALUES (?,?,?,?)";
-	conexion.update(sql,historial.getFecha(),
-			historial.getTiempoAvance(),
-			historial.getPerfilId(),
-			historial.getPeliculaId());
-			
-}
-
 public void actualizar(Historial historial) {
 	String sql = "UPDATE historial SET tiempo_avance= ?, WHERE id= ?";
 	conexion.update(sql, historial.getTiempoAvance(),historial.getId());
