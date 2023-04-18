@@ -3,6 +3,7 @@ package tec.proyect.backend_nuevo.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,6 +35,16 @@ public class Historial_REST {
 	public ResponseEntity<?> actualizar(@RequestBody Historial historial) {
 		try {
 			repository.actualizar(historial);
+			return new ResponseEntity<Void>(HttpStatus.CREATED);
+		}
+		catch(Exception e){
+			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+		}
+	}
+	@DeleteMapping
+	public ResponseEntity<?> eliminar(@RequestBody Historial historial) {
+		try {
+			repository.eliminar(historial);
 			return new ResponseEntity<Void>(HttpStatus.CREATED);
 		}
 		catch(Exception e){

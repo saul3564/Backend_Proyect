@@ -21,7 +21,11 @@ public void agregar(Historial historial) {
 			
 }
 public void actualizar(Historial historial) {
-	String sql = "UPDATE historial SET tiempo_avance= ?, WHERE id= ?";
+	String sql = "UPDATE historial SET tiempo_avance= ? WHERE id= ?";
 	conexion.update(sql, historial.getTiempoAvance(),historial.getId());
+}
+public void eliminar(Historial historial) {
+	String sql = "DELETE FROM historial WHERE id= ?";
+	conexion.update(sql,historial.getId());
 }
 }
